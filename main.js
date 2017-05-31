@@ -77,5 +77,19 @@ function submitTodo() {
 // toggles
 function nextTodoId() {
   return document.getElementsByClassName("todo").length + 1;
+  }
 }
+
+function cleanUpDoneTodos() {
+  var list = document.getElementById("todolist");
+  var doneItems = document.getElementsByClassName("completed");
+
+  //Reverse loop through the done todo items so we can remove them without changing the index of the remaining items when we remove them/
+  for (var i = doneItems.length;
+    i > 0;
+    i--)
+    {
+      list.removeChild(doneItems[i-1]);
+    }
+  updateCounters();
 }
